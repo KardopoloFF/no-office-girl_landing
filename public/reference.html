@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Айтишница на удаленке — Валерия</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #ffffff;
+        color: #1e1e2f;
+        line-height: 1.5;
+        scroll-behavior: smooth;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Магические фоновые точки */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            circle at 20% 30%,
+            rgba(106, 78, 155, 0.02) 0%,
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(180, 140, 255, 0.02) 0%,
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 10% 80%,
+            rgba(106, 78, 155, 0.01) 0%,
+            transparent 30%
+          );
+        z-index: -1;
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+      }
+      h2 {
+        font-size: 2.2rem;
+        font-weight: 500;
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+      }
+      h2:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: #6b4e9b;
+        border-radius: 2px;
+      }
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.2rem;
+        }
+        h2 {
+          font-size: 1.8rem;
+        }
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #6b4e9b;
+        color: white;
+        padding: 12px 32px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(107, 78, 155, 0.2);
+        font-size: 1rem;
+      }
+      .btn:hover {
+        background-color: #5a3d84;
+        box-shadow: 0 8px 20px rgba(107, 78, 155, 0.4);
+        transform: translateY(-2px);
+      }
+      .btn-outline {
+        background: transparent;
+        border: 2px solid #6b4e9b;
+        color: #6b4e9b;
+        box-shadow: none;
+      }
+      .btn-outline:hover {
+        background: #6b4e9b;
+        color: white;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+      /* Первая секция — полэкрана */
+      .hero-about {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        padding: 40px 0;
+      }
+
+      .about-grid {
+        display: flex;
+        gap: 50px;
+        align-items: center;
+      }
+      .about-photo {
+        flex: 0 0 280px; /* фиксированная ширина фото */
+        border-radius: 40px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(107, 78, 155, 0.2);
+        border: 3px solid white;
+        outline: 2px solid #e0d0ff;
+        background: #f5f0ff;
+        aspect-ratio: 1/1.2;
+      }
+      .about-photo .placeholder {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #e0d0ff, #b69fff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 10px;
+      }
+      .about-text {
+        flex: 1;
+      }
+      @media (max-width: 768px) {
+        .about-grid {
+          flex-direction: column;
+          gap: 30px;
+        }
+        .about-photo {
+          flex: 0 0 auto;
+          width: 80%;
+          max-width: 320px;
+        }
+      }
+
+      /* Оракул */
+      .oracle-block {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .card-back {
+        width: 200px;
+        height: 280px;
+        background: linear-gradient(145deg, #f0e9ff, #ffffff);
+        border-radius: 16px;
+        margin: 30px auto;
+        box-shadow:
+          0 20px 40px rgba(107, 78, 155, 0.25),
+          0 0 0 2px rgba(180, 140, 255, 0.2) inset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(107, 78, 155, 0.3);
+        transition: 0.3s;
+      }
+      .card-back i {
+        font-size: 4rem;
+        color: #6b4e9b;
+        opacity: 0.6;
+      }
+      .result-card {
+        background: #faf8ff;
+        border-radius: 24px;
+        padding: 24px;
+        margin-top: 30px;
+        border: 1px solid #e0d0ff;
+        box-shadow: 0 8px 0 #d6c0ff;
+        display: none;
+      }
+      .result-card.show {
+        display: block;
+        animation: appear 0.4s ease;
+      }
+      @keyframes appear {
+        0% {
+          opacity: 0;
+          transform: scale(0.9) rotate(-2deg);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) rotate(0);
+        }
+      }
+      .result-card h3 {
+        font-size: 1.8rem;
+        color: #6b4e9b;
+        margin-bottom: 10px;
+      }
+      .result-card p {
+        font-size: 1.1rem;
+      }
+      .result-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+
+      /* Услуги */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+      @media (max-width: 768px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .service-card {
+        background: white;
+        border-radius: 32px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        border: 1px solid rgba(107, 78, 155, 0.1);
+        transition: 0.3s;
+      }
+      .service-icon {
+        font-size: 2.8rem;
+        color: #6b4e9b;
+        margin-bottom: 20px;
+      }
+      .service-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+      }
+      .service-card p {
+        margin-bottom: 25px;
+        color: #4a4a5e;
+      }
+      .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 32px;
+        box-shadow: 0 20px 50px rgba(107, 78, 155, 0.08);
+        border: 1px solid #f0eaff;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 16px 20px;
+        border: 1px solid #ddd;
+        border-radius: 40px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: 0.2s;
+      }
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: #6b4e9b;
+        box-shadow: 0 0 0 3px rgba(107, 78, 155, 0.2);
+      }
+      .form-btn {
+        width: 100%;
+        padding: 16px;
+      }
+
+      /* Соцсети */
+      .social-links {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .social-link {
+        background: white;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: #6b4e9b;
+        border: 1px solid #e0d0ff;
+        transition: 0.3s;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      }
+      .social-link:hover {
+        background: #6b4e9b;
+        color: white;
+        border-color: #6b4e9b;
+        transform: scale(1.1);
+      }
+
+      footer {
+        text-align: center;
+        padding: 30px 0;
+        border-top: 1px solid #f0eaff;
+        color: #7b7b93;
+      }
+
+      .subtitle {
+        font-size: 1.3rem;
+        color: #5e5e7a;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Секция 1: О себе (полэкрана, фото слева компактно) -->
+    <section class="hero-about">
+      <div class="container">
+        <h1>Айтишница на удаленке — Валерия</h1>
+        <div class="about-grid">
+          <div class="about-photo">
+            <!-- Здесь будет твоё фото в стиле метафорической карты -->
+            <div class="placeholder">
+              ✨ Твоё фото в стиле метафорической карты ✨
+            </div>
+          </div>
+          <div class="about-text">
+            <p style="font-size: 1.3rem; color: #6b4e9b; margin-bottom: 20px">
+              6+ лет в тестировании. Гадаю на релизы и провожу мок-собесы.
+            </p>
+            <p style="margin-bottom: 20px">
+              Меня зовут Валерия, я тестировщица с опытом 6+ лет. Работала в
+              стартапах и крупных продуктах, провела сотни собеседований. Когда
+              не тестирую, рисую карты таро для айтишников, пью матча и помогаю
+              девушкам в IT чувствовать себя увереннее.
+            </p>
+            <p>
+              Мой подход — совмещать структуру и интуицию, поэтому на сайте
+              появился этот необычный оракул. Загадай вопрос, и пусть вселенная
+              (и опыт) подскажут ответ.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 2: IT-оракул -->
+    <section style="background: #fcfaff">
+      <div class="container">
+        <div class="oracle-block">
+          <h2 style="font-weight: 300; color: #6b4e9b">IT-Оракул</h2>
+          <p style="margin-bottom: 2rem; color: #5e5e7a">
+            Загадай, выйдет ли сегодня баг, замержить ли PR или просто спроси
+            совет у вселенной
+          </p>
+
+          <div class="card-back" id="cardBack">
+            <i class="fas fa-star"></i>
+          </div>
+          <button class="btn" id="drawCardBtn">Тянуть карту</button>
+          <div class="result-card" id="resultCard">
+            <div class="result-icon" id="resultIcon">🔮</div>
+            <h3 id="cardTitle">Терпеливый тестировщик</h3>
+            <p id="cardDesc">
+              Карта говорит, что баг не твой, жди помощи от тимлида. Звезды
+              советуют не пушить в пятницу вечером.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 3: Услуги -->
+    <section>
+      <div class="container">
+        <h2>Помощь тем, кто в коде</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-mug-hot"></i></div>
+            <h3>Индивидуальная консультация</h3>
+            <p>
+              Разберём твой карьерный путь, вопросы по проектам, подготовимся к
+              сложным разговорам с руководством. Поддержка и честный взгляд со
+              стороны.
+            </p>
+            <a href="#booking" class="btn btn-outline">Записаться</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-code"></i></div>
+            <h3>Мок-собеседование</h3>
+            <p>
+              Проведу собеседование в комфортной обстановке, дам честную
+              обратную связь и поддержу. Опыт 6+ лет, реальные кейсы.
+            </p>
+            <a href="#booking" class="btn btn-outline">Выбрать время</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 4: Форма записи -->
+    <section id="booking" style="background: #fcfaff">
+      <div class="container">
+        <h2 style="text-align: center; display: block">
+          Заполни форму, и я свяжусь с тобой
+        </h2>
+        <div class="form-container">
+          <form id="contactForm">
+            <div class="form-group">
+              <input type="text" placeholder="Ваше имя" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Telegram или email" required />
+            </div>
+            <div class="form-group">
+              <select required>
+                <option value="" disabled selected>Что вас интересует?</option>
+                <option>Консультация</option>
+                <option>Мок-собеседование</option>
+                <option>Другое</option>
+              </select>
+            </div>
+            <button type="submit" class="btn form-btn">Отправить заявку</button>
+            <p
+              style="
+                text-align: center;
+                margin-top: 20px;
+                color: #8a8aa0;
+                font-size: 0.9rem;
+              "
+            >
+              Отвечаю в течение дня. Магию не гарантирую, но поддержку — да.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 5: Социальные сети -->
+    <section>
+      <div class="container">
+        <h2 style="text-align: center; display: block">Мои измерения</h2>
+        <div class="social-links">
+          <a href="#" class="social-link" target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" class="social-link" target="_blank"
+            ><i class="fab fa-youtube"></i
+          ></a>
+          <a href="#" class="social-link" target="_blank"
+            ><i class="fab fa-telegram-plane"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+      <div class="container">
+        <p>© 2025 Айтишница на удаленке — Валерия. Все права защищены.</p>
+      </div>
+    </footer>
+    <script>
+      const predictions = [
+        {
+          title: "Терпеливый тестировщик",
+          desc: "Карта говорит, что баг не твой, жди помощи от тимлида. Звезды советуют не пушить в пятницу вечером.",
+          icon: "🐞",
+        },
+        {
+          title: "Срочный хотфикс",
+          desc: "Вселенная намекает: сегодня лучше не деплоить. Займись документацией или выпей чаю.",
+          icon: "🔥",
+        },
+        {
+          title: "Кофе с утра",
+          desc: "Твой код будет чистым, если начнёшь день с правильного кофе. Баги отступят.",
+          icon: "☕",
+        },
+        {
+          title: "Мудрый сеньор",
+          desc: "Опыт прошлых проектов подскажет решение. Спроси совета у коллеги, которому доверяешь.",
+          icon: "🧙‍♂️",
+        },
+        {
+          title: "Баг в продакшене",
+          desc: "Не паникуй! Это случается с каждым. Главное — правильно всё починить и задокументировать.",
+          icon: "⚠️",
+        },
+        {
+          title: "Успешный релиз",
+          desc: "Звёзды складываются удачно. Можно смело выкатывать фичу — пользователи будут в восторге.",
+          icon: "🚀",
+        },
+        {
+          title: "Ленивый разработчик",
+          desc: "Карта советует отдохнуть. Возьми выходной или просто посиди в тишине — код подождёт.",
+          icon: "😴",
+        },
+        {
+          title: "Новый стек",
+          desc: "Самое время изучить что-то новое. Технологии не стоят на месте, и ты тоже.",
+          icon: "⚙️",
+        },
+      ];
+
+      const drawBtn = document.getElementById("drawCardBtn");
+      const resultCard = document.getElementById("resultCard");
+      const cardTitle = document.getElementById("cardTitle");
+      const cardDesc = document.getElementById("cardDesc");
+      const resultIcon = document.getElementById("resultIcon");
+      const cardBack = document.getElementById("cardBack");
+
+      drawBtn.addEventListener("click", () => {
+        const randomIndex = Math.floor(Math.random() * predictions.length);
+        const pred = predictions[randomIndex];
+
+        cardTitle.textContent = pred.title;
+        cardDesc.textContent = pred.desc;
+        resultIcon.textContent = pred.icon;
+
+        resultCard.classList.add("show");
+
+        cardBack.style.transform = "scale(0.95)";
+        setTimeout(() => {
+          cardBack.style.transform = "scale(1)";
+        }, 200);
+      });
+
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert(
+            "Спасибо! Заявка отправлена (демо-режим). В ближайшее время я свяжусь с вами.",
+          );
+          this.reset();
+        });
+    </script>
+  </body>
+</html>
