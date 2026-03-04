@@ -1,0 +1,7 @@
+@use "./styles/colors" as *;
+
+.App {
+  height: 100vh;
+  width: 100wh;
+  background-color: $color-primary;
+}
