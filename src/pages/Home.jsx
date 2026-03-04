@@ -1,5 +1,10 @@
+import { Header } from "../components/Header/Header";
 import styles from "./Home.module.scss";
 
 export const HomePage = () => {
-  return <div className={styles.Container}></div>;
+  return (
+    <main className={styles.Container}>
+      <Header />
+    </main>
+  );
 };
