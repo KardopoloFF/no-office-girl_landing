@@ -59,12 +59,12 @@ export const Card = () => {
         </div>
         <div>
           <img
+            src={currentCard ? currentCard.icon : default_card}
+            alt=""
             className={`
     ${isShuffling ? styles.shuffling : ""}
     ${currentCard ? styles.visible : ""}
   `}
-            alt=""
-            src={currentCard ? currentCard.icon : default_card}
           />
         </div>
 
