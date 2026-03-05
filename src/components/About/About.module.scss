@@ -1,10 +1,20 @@
+@use "../../styles/colors" as *;
+
 .about_section {
+  margin-top: 30px;
+  background-color: #ffffff;
+
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.about_inner {
+  max-width: 1100px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 60px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 10px 20px;
   align-items: center;
 }
 
@@ -16,12 +26,20 @@
 .about_h1 {
   grid-column: 1 / -1;
   margin-bottom: 20px;
+  font-size: 50px;
+  font-weight: 600;
 }
 
 .about_img {
   width: 100%;
   max-width: 300px;
   height: auto;
+  box-shadow: 0 20px 40px rgba(107, 78, 155, 0.2);
+  border: 3px solid white;
+  outline: 2px solid #e0d0ff;
+  background: #f5f0ff;
+  aspect-ratio: 1/1.2;
+  border-radius: 40px;
 }
 
 .right {
@@ -30,9 +48,14 @@
 }
 
 .about_h2 {
+  color: $color-primary;
+  font-weight: 500;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
-.about_text + .about_text {
+.about_text {
   margin-top: 12px;
+  color: $font-secondary;
+  font-size: 16px;
 }

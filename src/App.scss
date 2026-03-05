@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 /* Remove default margin in favour of better control in authored CSS */
@@ -82,6 +82,9 @@ button,
 textarea,
 select {
   font: inherit;
+}
+a {
+  text-decoration: none;
 }
 
 /* Make sure textarea without a rows attribute are not tiny */

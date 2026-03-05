@@ -1,11 +1,52 @@
-.form_card {
-  margin: 0 auto;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
+@use "../../styles/colors" as *;
 
-  .help_button {
-    width: 500px;
-    margin: 30px 30px;
+.form_card {
+  width: 100%;
+  padding: 60px 20px;
+
+  background-color: #fcfaff;
+
+  .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  span {
+    color: $font-secondary;
+  }
+}
+.help_button {
+  width: 500px;
+  height: 50px;
+  color: $color-primary;
+  background-color: white;
+  border: 2px solid $color-primary;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(107, 78, 155, 0.2);
+
+  &:hover {
+    background-color: $color-primary;
+    color: white;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(107, 78, 155, 0.35);
+  }
+
+  &:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 3px 8px rgba(107, 78, 155, 0.25);
   }
 }
