@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/no-office-girl_landing/static/css/main.b6c4d429.css",
+    "main.js": "/no-office-girl_landing/static/js/main.b4b8cd42.js",
+    "static/media/Valeria.jpg": "/no-office-girl_landing/static/media/Valeria.75a54d5ae8617bec5eb8.jpg",
+    "static/media/card4.jpg": "/no-office-girl_landing/static/media/card4.4b2b4146c4411ef26e2e.jpg",
+    "static/media/card5.jpg": "/no-office-girl_landing/static/media/card5.cb943937ab4a63aee06e.jpg",
+    "static/media/card6.jpg": "/no-office-girl_landing/static/media/card6.ff5f5779c74efd7d45f6.jpg",
+    "static/media/card3.jpg": "/no-office-girl_landing/static/media/card3.24dc5a761c138abe4ef6.jpg",
+    "static/media/card7.jpg": "/no-office-girl_landing/static/media/card7.f7fed67526d32518b16c.jpg",
+    "static/media/telegram.png": "/no-office-girl_landing/static/media/telegram.7477aeb66bd28f01d97d.png",
+    "static/media/card1.jpg": "/no-office-girl_landing/static/media/card1.3b475c8470f2f39082d4.jpg",
+    "static/media/insta.png": "/no-office-girl_landing/static/media/insta.3c3902c6fa27215de5c6.png",
+    "static/media/sobes.png": "/no-office-girl_landing/static/media/sobes.d3ad2775b45b26490540.png",
+    "static/media/help.png": "/no-office-girl_landing/static/media/help.e5d214d7e17b90031192.png",
+    "index.html": "/no-office-girl_landing/index.html",
+    "main.b6c4d429.css.map": "/no-office-girl_landing/static/css/main.b6c4d429.css.map",
+    "main.b4b8cd42.js.map": "/no-office-girl_landing/static/js/main.b4b8cd42.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6c4d429.css",
+    "static/js/main.b4b8cd42.js"
+  ]
+}
