@@ -1,0 +1,38 @@
+.about_section {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.about_h1 {
+  grid-column: 1 / -1;
+  margin-bottom: 20px;
+}
+
+.about_img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.about_h2 {
+  margin-bottom: 20px;
+}
+
+.about_text + .about_text {
+  margin-top: 12px;
+}

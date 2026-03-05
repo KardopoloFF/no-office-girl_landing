@@ -1,0 +1,23 @@
+.help_section {
+  margin: 0 auto;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .help_card {
+    padding: 20px;
+    max-width: 500px;
+    border: 1px solid black;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+  }
+}

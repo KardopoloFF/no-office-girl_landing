@@ -4,17 +4,22 @@ import styles from "./About.module.scss";
 export const About = () => {
   return (
     <section className={styles.about_section}>
-      <h1>Айтишница на удаленке - Валерия</h1>
-      <img src={valeria_img} alt="." />
-      <div>
-        <h2>6+ лет в тестировании. Гадаю на релизы и провожу мок-собесы.</h2>
-        <p>
+      <h1 className={styles.about_h1}>Айтишница на удаленке - Валерия</h1>
+      <div className={styles.left}>
+        <img src={valeria_img} alt="Валерия" className={styles.about_img} />
+      </div>
+
+      <div className={styles.right}>
+        <h2 className={styles.about_h2}>
+          6+ лет в тестировании. Гадаю на релизы и провожу мок-собесы.
+        </h2>
+        <p className={styles.about_text}>
           Меня зовут Валерия, я тестировщица с опытом 6+ лет. Работала в
           стартапах и крупных продуктах, провела сотни собеседований. Когда не
           тестирую, рисую карты таро для айтишников, пью матча и помогаю
           девушкам в IT чувствовать себя увереннее.
         </p>
-        <p>
+        <p className={styles.about_text}>
           Мой подход — совмещать структуру и интуицию, поэтому на сайте появился
           этот необычный оракул. Загадай вопрос, и пусть вселенная (и опыт)
           подскажут ответ.

@@ -9,17 +9,24 @@ export const Footer = () => {
     "https://www.instagram.com/valeryflame?igsh=eWhldXZnaTVtZmUx";
 
   return (
-    <footer>
-      <a href={telegaLink} target="_blank" rel="noreferrer">
-        <button>
-          <img src={telega_logo} alt="" />
-        </button>
-      </a>
-      <a href={instaLink} target="_blank" rel="noreferrer">
-        <button>
-          <img src={insta_logo} alt="" />
-        </button>
-      </a>
+    <footer className={styles.footer}>
+      <div className={styles.footer_inner}>
+        <h1>Мои соцсети</h1>
+
+        <div className={styles.footer_buttons}>
+          <a href={telegaLink} target="_blank" rel="noreferrer">
+            <button className={styles.footer_action_button}>
+              <img src={telega_logo} alt="Telegram" />
+            </button>
+          </a>
+
+          <a href={instaLink} target="_blank" rel="noreferrer">
+            <button className={styles.footer_action_button}>
+              <img src={insta_logo} alt="Instagram" />
+            </button>
+          </a>
+        </div>
+      </div>
     </footer>
   );
 };
