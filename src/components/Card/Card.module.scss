@@ -1,6 +1,133 @@
+@use "../../styles/colors" as *;
+
 .card_section {
+  width: 100%;
+  padding: 60px 20px;
+
+  background-color: #fcfaff;
+}
+
+.card_inner {
   max-width: 1000px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  gap: 60px;
+
+  h1 {
+    font-weight: 500;
+    color: $color-primary;
+  }
+
+  p {
+    width: 450px;
+    margin-top: 20px;
+    color: $font-secondary;
+  }
+  .card_button {
+    color: white;
+    background-color: $color-primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 30px;
+    border: 2px solid $color-secondary;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+
+    box-shadow: 0 5px 15px rgba(107, 78, 155, 0.3);
+
+    &:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 20px rgba(107, 78, 155, 0.35);
+      background-color: lighten($color-primary, 5%);
+    }
+
+    &:active {
+      transform: translateY(2px) scale(0.98);
+      box-shadow: 0 3px 8px rgba(107, 78, 155, 0.25);
+    }
+  }
+}
+
+.card_inner > div,
+.card_inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card_inner img {
+  width: 180px;
+  height: auto;
+  box-shadow: 0 20px 40px rgba(107, 78, 155, 0.2);
+  border: 3px solid white;
+  outline: 2px solid #e0d0ff;
+  background: #f5f0ff;
+  aspect-ratio: 1/1.2;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.shuffling {
+  animation: shuffle 0.6s ease-in-out infinite;
+}
+
+.card_inner img {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.6s ease;
+}
+
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+.card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.cardVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes shuffle {
+  0% {
+    transform: rotate(-8deg) scale(1);
+  }
+  25% {
+    transform: rotate(8deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(-6deg) scale(1);
+  }
+  75% {
+    transform: rotate(6deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.card {
+  background: #f5f0ff;
+  padding: 20px;
+  border-radius: 35px;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  h2 {
+    color: $color-primary;
+  }
 }

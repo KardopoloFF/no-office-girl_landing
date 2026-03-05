@@ -2,69 +2,86 @@ import styles from "./Card.module.scss";
 
 import default_card from "../../assets/default_card.png";
 
+import card1 from "../../assets/card1.jpg";
+import card2 from "../../assets/card2.jpg";
+import card3 from "../../assets/card3.jpg";
+import card4 from "../../assets/card4.jpg";
+import card5 from "../../assets/card5.jpg";
+import card6 from "../../assets/card6.jpg";
+import card7 from "../../assets/card7.jpg";
+import card8 from "../../assets/card8.jpg";
+import { useState } from "react";
+
 export const Card = () => {
   const predictions = [
-    {
-      title: "Рыба-1",
-      desc: "Товарищи! новая модель организационной деятельности влечет за собой процесс внедрения и модернизации соответствующий условий активизации.  ",
-      icon: "",
-    },
-    {
-      title: "Рыба-2",
-      desc: "С другой стороны дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки модели развития. Равным образом рамки и место обучения кадров представляет собой интересный эксперимент проверки системы обучения кадров, соответствует насущным потребностям",
-      icon: "",
-    },
-    {
-      title: "Рыба-3",
-      desc: "Идейные соображения высшего порядка, а также дальнейшее развитие различных форм деятельности требуют от нас анализа направлений прогрессивного развития. ",
-      icon: "",
-    },
-    {
-      title: "Рыба-4",
-      desc: "Не следует, однако забывать, что начало повседневной работы по формированию позиции требуют от нас анализа форм развития.",
-      icon: "",
-    },
-    {
-      title: "Рыба-5",
-      desc: "Повседневная практика показывает, что рамки и место обучения кадров в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям",
-      icon: "",
-    },
-    {
-      title: "Рыба-6",
-      desc: "Задача организации, в особенности же укрепление и развитие структуры влечет за собой процесс внедрения и модернизации новых предложений",
-      icon: "",
-    },
-    {
-      title: "Рыба-7",
-      desc: " Равным образом дальнейшее развитие различных форм деятельности требуют от нас анализа систем массового участия.",
-      icon: "",
-    },
-    {
-      title: "Рыба-8",
-      desc: "Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение существенных финансовых и административных условий. ",
-      icon: "",
-    },
+    { title: "Рыба-1", desc: "Описание 1", icon: card1 },
+    { title: "Рыба-2", desc: "Описание 2", icon: card2 },
+    { title: "Рыба-3", desc: "Описание 3", icon: card3 },
+    { title: "Рыба-4", desc: "Описание 4", icon: card4 },
+    { title: "Рыба-5", desc: "Описание 5", icon: card5 },
+    { title: "Рыба-6", desc: "Описание 6", icon: card6 },
+    { title: "Рыба-7", desc: "Описание 7", icon: card7 },
+    { title: "Рыба-8", desc: "Описание 8", icon: card8 },
   ];
+
+  const [currentCard, setCurrentCard] = useState(null);
+  const [lastIndex, setLastIndex] = useState(null);
+  const [isShuffling, setIsShuffling] = useState(false);
+
+  const drawCard = () => {
+    if (isShuffling) return;
+
+    setIsShuffling(true);
+    setCurrentCard(null);
+
+    setTimeout(() => {
+      let randomIndex;
+
+      do {
+        randomIndex = Math.floor(Math.random() * predictions.length);
+      } while (randomIndex === lastIndex);
+
+      setLastIndex(randomIndex);
+      setCurrentCard(predictions[randomIndex]);
+      setIsShuffling(false);
+    }, 1200);
+  };
 
   return (
     <section className={styles.card_section}>
-      <div>
-        <h1>IT-Оракул (или че там ?)</h1>
-        <span>
-          Загадай, выйдет ли сегодня баг, замержить ли PR или просто спроси
-          совет у вселенной
-        </span>
-      </div>
-      <div>
-        <img alt="" src={default_card} />
-      </div>
-      <button>Тянуть карту</button>
-      <div>
-        <h2>Название карты</h2>
-        <p>
-          описаниееееееееееееееееее карттыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы ы
-          ыыыыыыыыыыыыыыыыы
-        </p>
+      <div className={styles.card_inner}>
+        <div>
+          <h1>IT-Оракул</h1>
+          <p>
+            Загадай, выйдет ли сегодня баг, замержить ли PR или просто спроси
+            совет у вселенной
+          </p>
+        </div>
+        <div>
+          <img
+            className={`
+    ${isShuffling ? styles.shuffling : ""}
+    ${currentCard ? styles.visible : ""}
+  `}
+            alt=""
+            src={currentCard ? currentCard.icon : default_card}
+          />
+        </div>
+
+        <button
+          className={styles.card_button}
+          onClick={drawCard}
+          disabled={isShuffling}
+        >
+          {isShuffling ? "Магия..." : "Тянуть карту"}
+        </button>
+
+        {currentCard && (
+          <div className={`${styles.card} ${styles.cardVisible}`}>
+            <h2>{currentCard.title}</h2>
+            <p>{currentCard.desc}</p>
+          </div>
+        )}
       </div>
     </section>
   );
